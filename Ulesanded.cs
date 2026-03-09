@@ -9,12 +9,15 @@ using System.Text;
 public class Ulesanded
 {
 
+
     public static void Lemmiktoit()
     {
+        string Retpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+
         try
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
-            StreamWriter text = new StreamWriter(path, true);
+            Retpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+            StreamWriter text = new StreamWriter(Retpath, true);
             Console.WriteLine("Sisesta ühte Itaalia toidu nime:");
             string lause = Console.ReadLine();
             text.WriteLine(lause);
@@ -29,10 +32,11 @@ public class Ulesanded
     }
     public static void KoguMenu()
     {
+        string Retpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
         try
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
-            StreamReader text = new StreamReader(path);
+            Retpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+            StreamReader text = new StreamReader(Retpath);
             string laused = text.ReadToEnd();
             text.Close();
             Console.WriteLine(laused);
@@ -45,7 +49,7 @@ public class Ulesanded
     }
     public static List<string> Koostisosade_muutmine()
     {
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Koostiosad.txt");
+        string Kospath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Koostiosad.txt");
         List<string> koostisosad = new List<string>();
         while (true)
         {
@@ -76,7 +80,10 @@ public class Ulesanded
 
         }
         return koostisosad;
+
     }
+    
+
 }
         
 
