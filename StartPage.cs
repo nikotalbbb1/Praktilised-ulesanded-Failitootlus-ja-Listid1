@@ -11,7 +11,7 @@ namespace Praktilised_ulesanded_Failitootlus_ja_Listid
             bool tööta = true;
             while (tööta)
             {
-                Console.WriteLine("1.  Pinginaabrid");
+                Console.WriteLine("1.  Lemmiktoidu salvestamine faili");
                 Console.WriteLine("2.  Kogu menüü kuvamine");
                 Console.WriteLine("3.  Koostisosade muutmine nimekirjas");
 
@@ -26,10 +26,12 @@ namespace Praktilised_ulesanded_Failitootlus_ja_Listid
                         Ulesanded.KoguMenu();
                         break;
                     case "3":
+                        List<string> Koostisosad = new List<string>();
                         Ulesanded.Koostisosade_muutmine();
                         break;
 
                 }
+            }
         }
     }
 }

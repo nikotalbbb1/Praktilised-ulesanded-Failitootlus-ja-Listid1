@@ -6,77 +6,79 @@ using System.Text;
 
 
 
-    public class Ulesanded
+public class Ulesanded
+{
+
+    public static void Lemmiktoit()
     {
-         
-        public static void Lemmiktoit()
+        try
         {
-            try
-            {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
-                StreamWriter text = new StreamWriter(path, true);
-                Console.WriteLine("Sisesta ühte Itaalia toidu nime:");
-                string lause = Console.ReadLine();
-                text.WriteLine(lause);
-                text.Close();
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Mingi viga failiga");
-            }
-            
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+            StreamWriter text = new StreamWriter(path, true);
+            Console.WriteLine("Sisesta ühte Itaalia toidu nime:");
+            string lause = Console.ReadLine();
+            text.WriteLine(lause);
+            text.Close();
         }
-        public static void KoguMenu()
+        catch (Exception)
         {
-            try
-            {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
-                StreamReader text = new StreamReader(path);
-                string laused = text.ReadToEnd();
-                text.Close();
-                Console.WriteLine(laused);
-            }
-            catch (Exception)
-            {
 
-                Console.WriteLine("Mingi viga failiga, ei saa faili lugeda");
-            }
+            Console.WriteLine("Mingi viga failiga");
         }
-        public static List<string> Koostisosade_muutmine()
-        {
-            List<string> Koostisosad = new List<string>();
-            try
-            {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
-                foreach (string rida in File.ReadAllLines(path))
-                {
-                    Koostisosad.Add(rida);
-                }
-               
-                
-                if (Koostisosad.Count > 0)
-                    Koostisosad[0] = "Kvaliteetne oliiviõli";
-                
-                Koostisosad.Remove("Ketšup");
-                foreach (string item in Koostisosad)
-                {
-                    Console.WriteLine(item);
-                }
-
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Viga failiga!");
-            }
-            return Koostisosad;
-        }
-
-
-
 
     }
+    public static void KoguMenu()
+    {
+        try
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+            StreamReader text = new StreamReader(path);
+            string laused = text.ReadToEnd();
+            text.Close();
+            Console.WriteLine(laused);
+        }
+        catch (Exception)
+        {
+
+            Console.WriteLine("Mingi viga failiga, ei saa faili lugeda");
+        }
+    }
+    public static List<string> Koostisosade_muutmine()
+    {
+        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Koostiosad.txt");
+        List<string> koostisosad = new List<string>();
+        while (true)
+        {
+            Console.Write("Sisesta Koostisosa/kui kõik sisesta kõik: ");
+            string sisend = Console.ReadLine();
+
+            if (sisend == "kõik")
+                break;
+
+            koostisosad.Add(sisend);
+
+        }
+        if (koostisosad.Count > 0)
+        {
+            koostisosad[0] = "Kvaliteetne oliiviõli";
+        }
 
 
+        koostisosad.Remove("Ketšup");
+
+
+        Console.WriteLine("\nUuenenud nimekiri:");
+        foreach (string koostisosa in koostisosad)
+        {
+            Console.WriteLine("- " + koostisosa);
+
+
+
+        }
+        return koostisosad;
+    }
+}
+        
+
+    
 
