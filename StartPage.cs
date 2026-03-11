@@ -14,7 +14,10 @@ namespace Praktilised_ulesanded_Failitootlus_ja_Listid
                 Console.WriteLine("1.  Lemmiktoidu salvestamine faili");
                 Console.WriteLine("2.  Kogu menüü kuvamine");
                 Console.WriteLine("3.  Koostisosade muutmine nimekirjas");
-
+                Console.WriteLine("4. Kulmkapi Kontroll ");
+                Console.WriteLine("5. Salvesta Uuendatud Nimekiri");
+                Console.WriteLine("6. Itaalia Restoran");
+                Console.WriteLine("Vali funktsioon");
                 string valik = Console.ReadLine();
                 Console.WriteLine();
                 switch (valik)
@@ -28,6 +31,15 @@ namespace Praktilised_ulesanded_Failitootlus_ja_Listid
                     case "3":
                         List<string> Koostisosad = new List<string>();
                         Ulesanded.Koostisosade_muutmine();
+                        break;
+                    case "4":
+                        Ulesanded.KulmkapiKontroll();
+                        break;
+                    case "5":
+                        Ulesanded.SalvestaUuendatudNimekiri();
+                        break;
+                    case "6":
+                        Ulesanded.ItaaliaRestoran();
                         break;
 
                 }
